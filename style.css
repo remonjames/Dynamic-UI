@@ -1,0 +1,243 @@
+:root{
+    box-sizing: border-box;
+    --primary: #102542;
+    --hover-color: #fdd052;
+    --light: #fff;
+    --dark: #1c2022;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+}
+
+header {
+    background-color: var(--primary);
+    padding-left: 1.5rem;
+}
+
+.brand-logo {
+    color: var(--light);
+    font-size: calc(0.8rem + 1vw);
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-links {
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    color: var(--light);
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+}
+
+/* Submenu Styles */
+.has-dropdown {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    left: 0;
+    background-color: var(--dark);
+    white-space: nowrap;
+    padding: 1.5rem 0;
+    min-width: 20rem;
+
+    /* Hide submenus */
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top center;
+}
+
+.submenu > li > a {
+    padding: 0.8rem 1.5rem;
+}
+
+.submenu .submenu {
+    left: -100%;
+    top: 0;
+}
+
+.submenu .submenu .submenu {
+    left: -100%;
+    top: 0;
+}
+
+ .submenu > li:hover > a {
+    background-color: hsla(0, 0%, 100%, 0.05);
+    color: var(--hover-color);
+}
+
+.navbar-links > li:hover > a {
+    background-color: hsla(0, 0%, 0%, 0.95);
+    color: var(--hover-color);
+}
+
+/* Reveal submenus */
+.navbar-links > li:hover > a + .submenu,
+.submenu > li:hover > a + .submenu {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* Arrows */
+
+.arrow {
+    width: 0.5rem;
+    height: 0.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    border-left: 0.15rem solid currentColor;
+    border-bottom: 0.15rem solid currentColor;
+    transform: rotate(-45deg);
+    /* Apply negative margin of half the height of arrow to align with text */
+    margin-top: -0.25rem;
+    transition: transform 200ms ease-in-out;
+}
+
+.navbar-links > li:hover > a > .arrow,
+.submenu > li:hover > a > .arrow {
+    transform: rotate(225deg);
+}
+
+@media only screen and (max-width: 1200px) {
+    .submenu .submenu .submenu {
+        left: 100%;
+        top: 0.5rem;
+    }
+    
+}
+
+@media only screen and (max-width: 850px) {
+    .navbar-links li a {
+        font-size: 1rem;
+    }
+    .submenu {
+        min-width: 16rem;
+        border-left: 0.12rem dotted hsla(342, 99%, 45%, 0.95);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        position: relative;
+        padding: 1.5rem 2rem;
+    }
+    .navbar-links {
+        flex-flow: column;
+        position: absolute;
+        background-color: var(--light);
+        top: 4.55rem;
+        left: 0;
+        right: 0;
+        height: 100vh;
+
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: 200ms transform cubic-bezier(0.36, 0.4, 0.42, 1.48) 100ms,
+        100ms opacity ease-in-out;
+    }
+
+    .navbar-links > li > a {
+        font-size: 1.5rem;
+        color: var(--dark);
+    }
+    .submenu > li > a {
+        font-size: 1.5rem;
+    }
+
+    .submenu {
+        top: 0;
+        padding-left: 1.5rem;
+    }
+
+    .submenu .submenu {
+        left: 0;
+        top: 0;
+    }
+
+    .submenu .submenu .submenu {
+        left: 0;
+        top: 0;
+    }
+
+
+    .navbar-links > li:hover > a + .submenu,
+    .submenu > li:hover > a + .submenu {
+        position: relative;
+    }
+
+    .hamburger {
+        width: 2rem;
+        height: 0.25rem;
+        display: block;
+        background-color: var(--light);
+        position: relative;
+        cursor: pointer;
+        transition: 0.2s transform ease-in-out;
+    }
+
+    .hamburger::after, .hamburger::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        background-color: inherit;
+        width: inherit;
+        height: inherit;
+        transition: 0.2s transform ease-in-out;
+    }
+
+    .hamburger::before{
+        top: 0.65rem;
+    }
+
+    .hamburger::after {
+        bottom: 0.65rem;
+    }
+
+    .close::after, .close::before {
+        top: 0;
+        transition: 0.2s transform ease-in-out;
+    }
+
+    .close {
+        transform: rotate(45deg);
+    }
+
+    .close::after {
+        transform: rotate(-90deg);
+    }
+
+    .close::before {
+        display: none;
+    }
+
+    input[type='checkbox']:checked + .navbar-links {
+        position: absolute;
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+ 

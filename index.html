@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic UI</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h2><a href="#" class="brand-logo">WebDev</a></h2>
+            </div>
+            <label for="input-hamburger" class="hamburger"></label>
+            <input type="checkbox" id="input-hamburger" hidden>
+            <ul class="navbar-links">
+                <li><a href="" class="nav-link">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="" class="nav-link">Services
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="#" class="nav-link">Web Design</a></li>
+                        <li><a href="#" class="nav-link">Web Development</a></li>
+                        <li class="has-dropdown">
+                            <a href="" class="nav-link">Full Stack Development
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#" class="nav-link">Wordpress Development</a></li>
+                                <li><a href="#" class="nav-link">Front End Development</a></li>
+                                <li class="has-dropdown">
+                                    <a href="" class="nav-link">MEAN Stack Development
+                                        <span class="arrow"></span>
+                                    </a>
+                                    <ul class="submenu">
+                                        <li><a href="#" class="nav-link">MongoDB</a></li>
+                                        <li><a href="#" class="nav-link">ExpressJS</a></li>
+                                        <li><a href="#" class="nav-link">AngularJS</a></li>
+                                        <li><a href="#" class="nav-link">NodeJS</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" class="nav-link">Back End Development</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="nav-link">UI/UX Design</a></li>
+                    </ul>
+                </li>
+                <li><a href="" class="nav-link">Portfolio</a></li>
+                <li><a href="" class="nav-link">Articles</a></li>
+                <li><a href="" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>
